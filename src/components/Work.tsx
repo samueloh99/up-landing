@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 
 const services = [
@@ -19,9 +20,12 @@ const services = [
   },
 ];
 
-const Work = () => {
+const Work = ({}, ref: any) => {
   return (
-    <div className="max-w-[1280px] w-full m-auto text-white">
+    <div
+      ref={ref}
+      className="max-w-[1280px] w-full m-auto text-white"
+    >
       <div className="flex flex-col text-center">
         <h1 className="md:text-5xl text-4xl text-btnStn">
           O que fazemos
@@ -55,4 +59,4 @@ const Work = () => {
   );
 };
 
-export default Work;
+export default forwardRef(Work);

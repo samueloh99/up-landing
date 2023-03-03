@@ -5,7 +5,11 @@ import { AiOutlineMenu } from "react-icons/ai";
 
 import Logo from "../assets/logo.png";
 
-const Navbar = () => {
+interface Props {
+  handleScroll: (location: string) => void;
+}
+
+const Navbar = ({ handleScroll }: Props) => {
   const [active, setActive] = useState("Home");
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -14,20 +18,25 @@ const Navbar = () => {
       <a className="cursor-pointer" href="/">
         <img src={Logo} alt="logo" className="w-[150px]" />
       </a>
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+      <ul className="list-none sm:flex hidden justify-end items-center flex-1 gap-4">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title
-                ? "text-stone-500"
-                : "text-stone-300"
-            } ${
-              index === navLinks.length - 1 ? "mr-0" : "mr-[30px]"
-            }`}
-            onClick={() => setActive(nav.title)}
+            className={`font-poppins font-normal cursor-pointer text-[16px]`}
+            onClick={() => {
+              setActive(nav.title);
+              if (nav.id === "about") {
+                handleScroll("about-us");
+              }
+              if (nav.id === "work") {
+                handleScroll("work");
+              }
+              if (nav.id === "cases") {
+                handleScroll("cases");
+              }
+            }}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            {nav.title}
           </li>
         ))}
       </ul>
@@ -39,7 +48,10 @@ const Navbar = () => {
       </div>
       <div></div>
       <div className="flex pl-[20px] sm:flex hidden">
-        <button className="rounded-md text-white bg-btnStn	px-10 py-1">
+        <button
+          className="rounded-md text-white bg-btnStn	px-10 py-1"
+          onClick={() => handleScroll("location")}
+        >
           FALE CONOSCO
         </button>
       </div>

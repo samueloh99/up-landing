@@ -1,6 +1,11 @@
-const About = () => {
+import { forwardRef } from "react";
+
+const About = ({}, ref: any) => {
   return (
-    <div className="max-w-[1280px] w-full m-auto  text-white py-[140px] px-3">
+    <div
+      ref={ref}
+      className="max-w-[1280px] w-full m-auto  text-white py-[140px] px-3"
+    >
       <div className="flex flex-col justify-center items-center text-center w-full mb-[30px]">
         <h1 className="md:text-5xl text-4xl text-btnStn">
           Quem Somos
@@ -64,4 +69,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default forwardRef(About);

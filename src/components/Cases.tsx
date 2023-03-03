@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 
 import Zen from "../assets/zen.png";
 import Lacleo from "../assets/lacleo.png";
@@ -12,7 +12,7 @@ const slides = {
   desktop: [Zen, Lacleo],
 };
 
-const Cases = () => {
+const Cases = ({}, ref: any) => {
   const [currentIdx, setCurrentIdx] = useState(0);
 
   const goNext = () => {
@@ -21,7 +21,10 @@ const Cases = () => {
     setCurrentIdx(newIdx);
   };
   return (
-    <div className="max-w-[1920px] w-full m-auto  text-white  my-10">
+    <div
+      ref={ref}
+      className="max-w-[1920px] w-full m-auto  text-white  my-10"
+    >
       <div className="text-center mb-10 px-3 md:px-0">
         <h1 className="md:text-5xl text-4xl text-btnStn">
           Cases de Sucesso
@@ -52,4 +55,4 @@ const Cases = () => {
   );
 };
 
-export default Cases;
+export default forwardRef(Cases);

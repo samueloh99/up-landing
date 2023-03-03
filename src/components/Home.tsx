@@ -1,7 +1,10 @@
 import Banner from "../assets/principal.png";
 import BannerMobile from "../assets/principal-mobile.png";
+interface Props {
+  handleScroll: (location: string) => void;
+}
 
-const Home = () => {
+const Home = ({ handleScroll }: Props) => {
   return (
     <div className="relative border-black w-full md:w-[1920px] m-auto">
       <img
@@ -24,7 +27,10 @@ const Home = () => {
             Agência de Performance e E-Commerce com mais de <br /> 15
             milhões faturados.
           </h2>
-          <button className="rounded-md text-btnStn bg-white	px-5 py-1 mt-10 w-[180px]">
+          <button
+            onClick={() => handleScroll("location")}
+            className="rounded-md text-btnStn bg-white	px-5 py-1 mt-10 w-[180px]"
+          >
             FALE CONOSCO
           </button>
         </div>

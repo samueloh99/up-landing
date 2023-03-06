@@ -26,6 +26,9 @@ module.exports = {
       backgroundColor: {
         stn: "#1e2738",
       },
+      boxShadow: {
+        customBS: "0px_0px_300px_-77px_rgba(255,255,255,1)",
+      },
     },
     screens: {
       xs: "480px",

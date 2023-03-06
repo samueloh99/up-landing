@@ -1,22 +1,31 @@
 import { forwardRef } from "react";
-import { FaShoppingCart } from "react-icons/fa";
+import Campanha from "../assets/1.png";
+import Conteudo from "../assets/2.png";
+import Ecommerce from "../assets/4.png";
+import Performance from "../assets/3.png";
+
+import Gradiente from "../assets/gradiente.png";
 
 const services = [
   {
     title: "Implantação de E-Commerce",
     desc: "Fazemos todo o processo para que seu e-commerce esteja em uma plataforma fluida e intuitiva em até 14 dias.",
+    icone: Ecommerce,
   },
   {
     title: "Gestão de Performance",
     desc: "Nosso time de marketing trabalha montando estratégias e criando métodos para otimizar campanhas e chegar ao resultado desejado.",
+    icone: Performance,
   },
   {
     title: "Criação e Conteúdo",
     desc: "Trabalhamos montando todo seu briefing para criação dos seus conteúdos. Seja seus vídeos, suas fotos ou conteúdos para as mídias.",
+    icone: Conteudo,
   },
   {
     title: "Gestão de Mídia Social",
     desc: "Temos um time de social media que faz toda a gestão das suas redes, alimentando e buscando aumentar seu engajamento.",
+    icone: Campanha,
   },
 ];
 
@@ -43,7 +52,7 @@ const Work = ({}, ref: any) => {
               className="flex flex-col text-center w-[300px] h-[400px] text-lg px-7 bg-bgBox border border-btnBorder hover:border-indigo-300 transition duration-500"
             >
               <div className="h-[40%] flex justify-center items-center">
-                <FaShoppingCart size={50} color="#7e89de" />
+                <img src={service.icone} className="w-[60px]" />
               </div>
               <div className="h-[15%] text-btnStn">
                 <h1>{service.title}</h1>

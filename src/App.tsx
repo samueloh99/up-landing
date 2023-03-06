@@ -8,6 +8,8 @@ import Cases from "./components/Cases";
 import Location from "./components/Location";
 import Footer from "./components/Footer";
 
+import Gradiente from "./assets/gradiente.png";
+
 const App = () => {
   const refForm = useRef<HTMLDivElement>(null);
   const refAboutUs = useRef<HTMLDivElement>(null);
@@ -35,14 +37,20 @@ const App = () => {
   };
 
   return (
-    <div className="w-full overflow-hidden bg-stn">
+    <div className="w-full relative overflow-hidden bg-stn">
       <Navbar handleScroll={handleScroll} />
 
       <Home handleScroll={handleScroll} />
 
-      <About ref={refAboutUs} />
+      <div className="relative">
+        <img
+          src={Gradiente}
+          className="absolute w-full h-[2000px] object-cover"
+        />
+        <About ref={refAboutUs} />
 
-      <Work ref={refWork} />
+        <Work ref={refWork} />
+      </div>
 
       <Cases ref={refCases} />
 
